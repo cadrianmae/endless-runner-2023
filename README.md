@@ -11,6 +11,8 @@ Pre-requisites:
 2. Open the project in Godot
 
 # Roadmap
+- [ ] Core game mechanics
+- [ ] Game theme
 
 # Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
