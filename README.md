@@ -28,9 +28,12 @@ git push origin <branch> # Pushes the latest changes to the remote repository
 ```
 
 # Authors
-- Adrian Thomas Capacite
-- Ernest John Decina
-- Sean Tighe
+- Adrian Thomas Capacite - [AdrianCapacite](https://github.com/AdrianCapacite)
+- Ernest John Decina - [ErnestDecina](https://github.com/ErnestDecina)
+- Michael O'Brian
+- Ron Pingol
+- Sean Tighe - [KindPlayer2](https://github.com/KindPlayer2)
+- Alex Tsang
 
 # [License](LICENSE.md)
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
