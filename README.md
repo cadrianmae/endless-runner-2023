@@ -22,7 +22,7 @@ git clone https://github.com/AdrianCapacite/endless-runner-2023.git
 ```bash
 git pull origin <branch> # Pulls the latest changes from the remote repository
 
-git add . && git commit -m "Commit message" # Adds all changes to the local repository
+git add . && git commit -m "Commit message" # Add and commit all changes to the local repository
 
 git push origin <branch> # Pushes the latest changes to the remote repository
 ```
