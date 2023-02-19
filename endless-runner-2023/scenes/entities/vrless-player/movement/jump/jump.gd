@@ -1,5 +1,5 @@
-extends VRlessMovement
-class_name VRlessJump
+extends Movement
+class_name Jump
 
 
 # Public Variables
@@ -13,6 +13,7 @@ var jump_boost_status: bool = true
 
 func _enter_tree():
 	xr_camera = get_parent().getXRCamera()
+	xr_origin = get_parent().getXROrigin()
 	xr_left_controller = get_parent().getXRLeftController()
 	xr_right_controller = get_parent().getXRRightContoller()
 	kinematic_body = get_parent().getKinematicBody()

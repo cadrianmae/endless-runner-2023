@@ -1,10 +1,9 @@
 extends Spatial
-class_name VRlessPlayer
+class_name Player
 
 
 # Priavte Variables
-var xr_camera: ARVRCamera
-var xr_origin: ARVROrigin
+var xr_camera: Camera
 var xr_left_controller: ARVRController
 var xr_right_controller: ARVRController
 var kinematic_body: KinematicBody
@@ -13,7 +12,6 @@ var collision_shape: CollisionShape
 func _enter_tree():
 	# Setting up Nodes
 	setXRCamera()
-	setXROrigin()
 	setXRLeftController()
 	setXRRightContoller()
 	setKinematicBody()
@@ -22,16 +20,13 @@ func _enter_tree():
 
 # Setter Nodes Functions
 func setXRCamera():
-	xr_camera = $KinematicBody/XROrigin/XRCamera
-
-func setXROrigin():
-	xr_origin = $KinematicBody/XROrigin
+	xr_camera = $KinematicBody/Pivot/Camera
 
 func setXRLeftController():
-	xr_left_controller = $KinematicBody/XROrigin/XRLeftHand
+	xr_left_controller = $KinematicBody/XRLeftHand
 
 func setXRRightContoller():
-	xr_right_controller = $KinematicBody/XROrigin/XRRightHand
+	xr_right_controller = $KinematicBody/XRRightHand
 
 func setKinematicBody():
 	kinematic_body = $KinematicBody
@@ -40,11 +35,8 @@ func setCollisionShape():
 	collision_shape = $KinematicBody/CollisionShape
 
 # Getter Functions
-func getXRCamera() -> ARVRCamera:
+func getXRCamera() -> Camera:
 	return xr_camera
-
-func getXROrigin() -> ARVROrigin:
-	return xr_origin
 
 func getXRLeftController() -> ARVRController:
 	return xr_left_controller

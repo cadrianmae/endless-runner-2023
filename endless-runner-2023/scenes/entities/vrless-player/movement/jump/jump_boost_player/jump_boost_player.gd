@@ -1,4 +1,4 @@
-extends VRlessJump
+extends Jump
 
 
 # Private Variables
@@ -25,7 +25,7 @@ func jumpBoostPlayer():
 		jump_boost_cooldown.stop()
 		return
 	
-	elif(!Input.is_action_pressed("Boost")):
+	elif(!xr_right_controller.rightControllerInput("RIGHT_A")):
 		return
 	
 	elif(jump_boost_counter > 0 and jump_boost_cooldown.is_stopped()):
