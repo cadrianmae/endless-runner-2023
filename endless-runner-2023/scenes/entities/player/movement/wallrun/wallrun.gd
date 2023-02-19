@@ -19,7 +19,7 @@ func wallrunPlayer():
 		get_parent().setWallrunStatus(false)
 		return
 	
-	if(!xr_left_controller.leftControllerInput("LEFT_GRIP") and !xr_right_controller.rightControllerInput("RIGHT_GRIP")):
+	if(!Input.is_action_pressed("Grip") and !xr_right_controller.rightControllerInput("RIGHT_GRIP")):
 		return
 		
 	get_parent().setVelocityY(0)

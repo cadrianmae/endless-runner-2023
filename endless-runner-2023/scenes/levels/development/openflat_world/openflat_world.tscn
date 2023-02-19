@@ -13,10 +13,8 @@ extents = Vector3( 1, 0.001, 1 )
 [node name="OpenFlatWorld" type="Spatial"]
 
 [node name="Utils" type="Spatial" parent="."]
-visible = false
 
 [node name="ParticleCache" parent="Utils" instance=ExtResource( 3 )]
-visible = false
 
 [node name="Enviroment" type="Spatial" parent="."]
 

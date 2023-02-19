@@ -4,8 +4,8 @@ class_name Player
 
 # Priavte Variables
 var xr_camera: Camera
-var xr_left_controller: ARVRController
-var xr_right_controller: ARVRController
+var xr_left_controller: Spatial
+var xr_right_controller: Spatial
 var kinematic_body: KinematicBody
 var collision_shape: CollisionShape
 
@@ -38,10 +38,10 @@ func setCollisionShape():
 func getXRCamera() -> Camera:
 	return xr_camera
 
-func getXRLeftController() -> ARVRController:
+func getXRLeftController() -> Spatial:
 	return xr_left_controller
 
-func getXRRightContoller() -> ARVRController:
+func getXRRightContoller() -> Spatial:
 	return xr_right_controller
 
 func getKinematicBody() -> KinematicBody:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://scenes/entities/vrless-player/vr_left_hand/vr_left_hand.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/entities/vrless-player/vr_right_hand/vr_right_hand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/vrless-player/vr_left_hand/vrless_left_hand.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/vrless-player/vr_right_hand/vrless_right_hand.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/vrless-player/vrless-player.gd" type="Script" id=3]
 [ext_resource path="res://scenes/entities/vrless-player/kinematic_body/kinematic_body.gd" type="Script" id=4]
 [ext_resource path="res://scenes/entities/player/movement/movement.gd" type="Script" id=5]
@@ -94,8 +94,10 @@ transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4
 shape = SubResource( 3 )
 
 [node name="XRLeftHand" parent="KinematicBody" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -1.8 )
 
 [node name="XRRightHand" parent="KinematicBody" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -1.8 )
 
 [node name="BodyCollisionArea" type="Area" parent="KinematicBody"]
 collision_layer = 2
