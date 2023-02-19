@@ -87,7 +87,7 @@ func initialise() -> bool:
 		# We can't set keep linear yet because we won't know the correct value until after our session has begun.
 
 		# increase our physics engine update speed
-		var refresh_rate = $Configuration.get_refresh_rate()
+		var refresh_rate = 90 #$Configuration.get_refresh_rate()
 		if refresh_rate == 0:
 			# Only Facebook Reality Labs supports this at this time
 			print("No refresh rate given by XR runtime")
