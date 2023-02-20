@@ -1,5 +1,5 @@
-extends Player
-class_name Movement
+extends VRlessPlayer
+class_name VRlessMovement
 
 # Public Variables
 var movement_speed: float = 10

@@ -1,10 +1,9 @@
 extends Spatial
-class_name VRlessPlayer
+class_name Player
 
 
 # Priavte Variables
 var xr_camera: ARVRCamera
-var xr_origin: ARVROrigin
 var xr_left_controller: ARVRController
 var xr_right_controller: ARVRController
 var kinematic_body: KinematicBody
@@ -13,7 +12,6 @@ var collision_shape: CollisionShape
 func _enter_tree():
 	# Setting up Nodes
 	setXRCamera()
-	setXROrigin()
 	setXRLeftController()
 	setXRRightContoller()
 	setKinematicBody()
@@ -23,9 +21,6 @@ func _enter_tree():
 # Setter Nodes Functions
 func setXRCamera():
 	xr_camera = $KinematicBody/XROrigin/XRCamera
-
-func setXROrigin():
-	xr_origin = $KinematicBody/XROrigin
 
 func setXRLeftController():
 	xr_left_controller = $KinematicBody/XROrigin/XRLeftHand
@@ -42,9 +37,6 @@ func setCollisionShape():
 # Getter Functions
 func getXRCamera() -> ARVRCamera:
 	return xr_camera
-
-func getXROrigin() -> ARVROrigin:
-	return xr_origin
 
 func getXRLeftController() -> ARVRController:
 	return xr_left_controller

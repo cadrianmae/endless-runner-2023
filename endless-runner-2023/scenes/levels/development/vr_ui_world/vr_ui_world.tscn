@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/levels/development/enviroment/floor/floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-openxr/config/OpenXRConfig.gdns" type="Script" id=2]
+[ext_resource path="res://scenes/entities/player/vr_right_hand/vr_right_hand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/player/vr_left_hand/vr_left_hand.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/player/player.gd" type="Script" id=5]
+[ext_resource path="res://scenes/entities/player/kinematic_body/xr_origin/xr_origin.gd" type="Script" id=9]
+[ext_resource path="res://scenes/levels/development/enviroment/vr_main_menu/main_menu.tscn" type="PackedScene" id=10]
+
+[sub_resource type="CapsuleShape" id=8]
+radius = 0.25
+height = 1.8
+
+[node name="VRUIWorld" type="Spatial"]
+
+[node name="Enviroment" type="Spatial" parent="."]
+
+[node name="Floor" parent="Enviroment" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="MainMenu" parent="Enviroment" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1 )
+main_game_path = "res://scenes/levels/development/demo_infinte_runner/demo_infinite_runner.tscn"
+
+[node name="PlayerSpawn" type="Spatial" parent="."]
+
+[node name="Player" type="Spatial" parent="PlayerSpawn"]
+process_priority = 1
+script = ExtResource( 5 )
+
+[node name="KinematicBody" type="KinematicBody" parent="PlayerSpawn/Player"]
+collision_mask = 16
+
+[node name="XROrigin" type="ARVROrigin" parent="PlayerSpawn/Player/KinematicBody"]
+script = ExtResource( 9 )
+
+[node name="Configuration" type="Node" parent="PlayerSpawn/Player/KinematicBody/XROrigin"]
+script = ExtResource( 2 )
+color_space = 0
+refresh_rate = 0.0
+
+[node name="XRCamera" type="ARVRCamera" parent="PlayerSpawn/Player/KinematicBody/XROrigin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
+current = true
+near = 0.1
+far = 1000.0
+
+[node name="XRLeftHand" parent="PlayerSpawn/Player/KinematicBody/XROrigin" instance=ExtResource( 4 )]
+
+[node name="XRRightHand" parent="PlayerSpawn/Player/KinematicBody/XROrigin" instance=ExtResource( 3 )]
+controller_id = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSpawn/Player/KinematicBody"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 8 )
+
+[node name="BodyCollisionArea" type="Area" parent="PlayerSpawn/Player/KinematicBody"]
+collision_layer = 2
+collision_mask = 1024
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSpawn/Player/KinematicBody/BodyCollisionArea"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 8 )

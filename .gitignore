@@ -40,7 +40,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # Godot Addons ignores
-endless-runner-2023/addons/*
+# Add for main branch
+# endless-runner-2023/addons/*
 
 # Godot Builds ignores
 endless-runner-2023/build/*

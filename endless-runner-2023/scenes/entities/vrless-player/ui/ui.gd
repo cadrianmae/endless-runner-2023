@@ -1,4 +1,4 @@
-extends Player
+extends VRlessPlayer
 
 
 func _enter_tree():

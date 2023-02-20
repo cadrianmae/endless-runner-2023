@@ -1,5 +1,5 @@
 extends VRlessMovement
-class_name VRlessJump
+class_name Jump
 
 
 # Public Variables

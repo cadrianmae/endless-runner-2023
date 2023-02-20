@@ -1,5 +1,5 @@
 extends Spatial
-class_name Player
+class_name VRlessPlayer
 
 
 # Priavte Variables
