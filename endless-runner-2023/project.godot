@@ -48,6 +48,11 @@ _global_script_classes=[ {
 "class": "WallMovement",
 "language": "GDScript",
 "path": "res://scenes/levels/development/enviroment/wall/movement/movement.gd"
+}, {
+"base": "Spatial",
+"class": "spawn_area",
+"language": "GDScript",
+"path": "res://scenes/levels/development/demo_infinte_runner/spawn_area/spawn_area.gd"
 } ]
 _global_script_class_icons={
 "EnemyCubeMovement": "",
@@ -57,13 +62,14 @@ _global_script_class_icons={
 "VRlessJump": "",
 "VRlessMovement": "",
 "VRlessPlayer": "",
-"WallMovement": ""
+"WallMovement": "",
+"spawn_area": ""
 }
 
 [application]
 
 config/name="Endless-runner- 2023"
-run/main_scene="res://scenes/levels/development/openflat_world/openflat_world.tscn"
+run/main_scene="res://scenes/levels/development/vr_ui_world/vr_ui_world.tscn"
 config/icon="res://icon.png"
 
 [autoload]

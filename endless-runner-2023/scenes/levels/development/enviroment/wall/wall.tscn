@@ -11,7 +11,7 @@
 extents = Vector3( 1.05, 1.05, 1.05 )
 
 [node name="Wall" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, 2.22437, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
 collision_layer = 16
 
 [node name="Movement" type="Spatial" parent="."]
