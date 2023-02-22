@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/entities/player/vr_right_hand/vr_right_hand.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/player/vr_right_hand/scripts/wall_run_position_area.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="Skin" id=5]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="BoxShape" id=6]
 
@@ -18,6 +21,7 @@ script = ExtResource( 1 )
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 4 )
 skin = SubResource( 5 )
+material/0 = SubResource( 8 )
 
 [node name="JumpPositionArea" type="Area" parent="."]
 collision_layer = 4096

@@ -18,7 +18,7 @@ func _ready():
 func _process(_delta):
 	if(node_forward == null):
 		return
-	
+	freeWall()
 	node_forward.movementForward()
 
 
@@ -40,3 +40,7 @@ func setVelocityZ(new_velocity_z: float):
 # Getter Funcitons
 func getVelocity() -> Vector3:
 	return velocity
+
+func freeWall():
+	if(get_owner().global_transform.origin.z > 30):
+		get_owner().queue_free()

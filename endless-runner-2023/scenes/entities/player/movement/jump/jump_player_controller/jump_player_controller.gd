@@ -1,4 +1,4 @@
-extends VRlessJump
+extends Jump
 
 
 func _enter_tree():
@@ -14,7 +14,7 @@ func jumpPlayerController():
 	if !kinematic_body.is_on_floor():
 		return
 		
-	if(!Input.is_action_pressed("Jump")):
+	if(!xr_left_controller.leftControllerInput("LEFT_X")):
 		return
 	
 	# Apply Jump

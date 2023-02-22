@@ -1,4 +1,4 @@
-extends Movement
+extends VRlessMovement
 
 
 # Public Variables
@@ -19,7 +19,7 @@ func wallrunPlayer():
 		get_parent().setWallrunStatus(false)
 		return
 	
-	if(!xr_left_controller.leftControllerInput("LEFT_GRIP") and !xr_right_controller.rightControllerInput("RIGHT_GRIP")):
+	if(!Input.is_action_pressed("Grip")):
 		return
 		
 	get_parent().setVelocityY(0)

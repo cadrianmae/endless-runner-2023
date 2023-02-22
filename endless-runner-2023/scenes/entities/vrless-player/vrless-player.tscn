@@ -2,20 +2,20 @@
 
 [ext_resource path="res://scenes/entities/vrless-player/vr_left_hand/vrless_left_hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/vrless-player/vr_right_hand/vrless_right_hand.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/vrless-player/vrless-player.gd" type="Script" id=3]
+[ext_resource path="res://scenes/entities/vrless-player/vrless_player.gd" type="Script" id=3]
 [ext_resource path="res://scenes/entities/vrless-player/kinematic_body/kinematic_body.gd" type="Script" id=4]
-[ext_resource path="res://scenes/entities/player/movement/movement.gd" type="Script" id=5]
-[ext_resource path="res://scenes/entities/player/movement/jump/jump_player_controller/jump_player_controller.gd" type="Script" id=7]
-[ext_resource path="res://scenes/entities/player/movement/jump/jump.gd" type="Script" id=8]
-[ext_resource path="res://scenes/entities/player/movement/jump/jump_player_physical/jump_player_physical.gd" type="Script" id=9]
-[ext_resource path="res://scenes/entities/player/movement/jump/jump_boost_player/jump_boost_player.gd" type="Script" id=10]
-[ext_resource path="res://scenes/entities/player/movement/wallrun/wallrun.gd" type="Script" id=11]
-[ext_resource path="res://scenes/entities/player/movement/axis/axis.gd" type="Script" id=12]
-[ext_resource path="res://scenes/entities/player/movement/velocity/velocity.gd" type="Script" id=13]
-[ext_resource path="res://scenes/entities/player/movement/gravity/gravity.gd" type="Script" id=14]
-[ext_resource path="res://scenes/entities/player/health/health.gd" type="Script" id=15]
-[ext_resource path="res://scenes/entities/player/ui/ui.gd" type="Script" id=16]
-[ext_resource path="res://scenes/entities/player/ui/health_bar/health_bar.gd" type="Script" id=17]
+[ext_resource path="res://scenes/entities/vrless-player/movement/jump/vrless_jump.gd" type="Script" id=5]
+[ext_resource path="res://scenes/entities/vrless-player/ui/health_bar/health_bar.gd" type="Script" id=6]
+[ext_resource path="res://scenes/entities/vrless-player/movement/vrless_movement.gd" type="Script" id=7]
+[ext_resource path="res://scenes/entities/vrless-player/ui/ui.gd" type="Script" id=8]
+[ext_resource path="res://scenes/entities/vrless-player/movement/wallrun/vrless_wallrun.gd" type="Script" id=9]
+[ext_resource path="res://scenes/entities/vrless-player/movement/jump/jump_player_controller/vrless_jump_player_controller.gd" type="Script" id=10]
+[ext_resource path="res://scenes/entities/vrless-player/health/health.gd" type="Script" id=11]
+[ext_resource path="res://scenes/entities/vrless-player/movement/gravity/vrless_gravity.gd" type="Script" id=12]
+[ext_resource path="res://scenes/entities/vrless-player/movement/jump/jump_player_physical/vrless_jump_player_physical.gd" type="Script" id=13]
+[ext_resource path="res://scenes/entities/vrless-player/movement/jump/jump_boost_player/vrless_jump_boost_player.gd" type="Script" id=14]
+[ext_resource path="res://scenes/entities/vrless-player/movement/velocity/vrless_velocity.gd" type="Script" id=15]
+[ext_resource path="res://scenes/entities/vrless-player/movement/axis/vrless_axis.gd" type="Script" id=16]
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 0.25
@@ -27,37 +27,32 @@ script = ExtResource( 3 )
 
 [node name="UI" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 3.30883, -3.80429 )
-script = ExtResource( 16 )
+script = ExtResource( 8 )
 
 [node name="HealthBar" type="Label3D" parent="UI"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 pixel_size = 0.02
 text = "Health: 0"
-script = ExtResource( 17 )
+script = ExtResource( 6 )
 
 [node name="Health" type="Spatial" parent="."]
-script = ExtResource( 15 )
+script = ExtResource( 11 )
 
 [node name="Movement" type="Spatial" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 7 )
 
 [node name="Jump" type="Spatial" parent="Movement"]
 process_priority = 3
-script = ExtResource( 8 )
-jump_boost = 400.0
-jump_force = 350.0
+script = ExtResource( 5 )
 
 [node name="JumpPlayerController" type="Spatial" parent="Movement/Jump"]
-script = ExtResource( 7 )
-jump_boost = 250.0
-jump_force = 300.0
+script = ExtResource( 10 )
 
 [node name="JumpPlayerPhysical" type="Spatial" parent="Movement/Jump"]
-script = ExtResource( 9 )
-jump_boost = 2.0
+script = ExtResource( 13 )
 
 [node name="JumpBoostPlayer" type="Spatial" parent="Movement/Jump"]
-script = ExtResource( 10 )
+script = ExtResource( 14 )
 
 [node name="JumpBoostCoolDown" type="Timer" parent="Movement/Jump/JumpBoostPlayer"]
 wait_time = 0.2
@@ -68,17 +63,16 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Wallrun" type="Spatial" parent="Movement"]
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 
 [node name="Axis" type="Spatial" parent="Movement"]
-script = ExtResource( 12 )
+script = ExtResource( 16 )
 
 [node name="Velocity" type="Spatial" parent="Movement"]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 
 [node name="Gravity" type="Spatial" parent="Movement"]
-script = ExtResource( 14 )
-gravity_strenght = 200.0
+script = ExtResource( 12 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 collision_mask = 16

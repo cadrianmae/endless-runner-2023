@@ -1,4 +1,4 @@
-extends Jump
+extends VRlessJump
 
 
 func _enter_tree():

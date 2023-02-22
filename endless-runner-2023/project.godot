@@ -14,40 +14,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/entities/enemies/cube/movement/movement.gd"
 }, {
-"base": "Movement",
-"class": "Jump",
-"language": "GDScript",
-"path": "res://scenes/entities/vrless-player/movement/jump/jump.gd"
-}, {
-"base": "Player",
-"class": "Movement",
-"language": "GDScript",
-"path": "res://scenes/entities/vrless-player/movement/movement.gd"
-}, {
-"base": "Spatial",
-"class": "Player",
-"language": "GDScript",
-"path": "res://scenes/entities/vrless-player/vrless-player.gd"
-}, {
 "base": "VRlessMovement",
-"class": "VRlessJump",
+"class": "Jump",
 "language": "GDScript",
 "path": "res://scenes/entities/player/movement/jump/jump.gd"
 }, {
 "base": "Player",
-"class": "VRlessMovement",
+"class": "Movement",
 "language": "GDScript",
 "path": "res://scenes/entities/player/movement/movement.gd"
 }, {
 "base": "Spatial",
-"class": "VRlessPlayer",
+"class": "Player",
 "language": "GDScript",
 "path": "res://scenes/entities/player/player.gd"
+}, {
+"base": "VRlessMovement",
+"class": "VRlessJump",
+"language": "GDScript",
+"path": "res://scenes/entities/vrless-player/movement/jump/vrless_jump.gd"
+}, {
+"base": "VRlessPlayer",
+"class": "VRlessMovement",
+"language": "GDScript",
+"path": "res://scenes/entities/vrless-player/movement/vrless_movement.gd"
+}, {
+"base": "Spatial",
+"class": "VRlessPlayer",
+"language": "GDScript",
+"path": "res://scenes/entities/vrless-player/vrless_player.gd"
 }, {
 "base": "Spatial",
 "class": "WallMovement",
 "language": "GDScript",
 "path": "res://scenes/levels/development/enviroment/wall/movement/movement.gd"
+}, {
+"base": "Spatial",
+"class": "spawn_area",
+"language": "GDScript",
+"path": "res://scenes/levels/development/demo_infinte_runner/spawn_area/spawn_area.gd"
 } ]
 _global_script_class_icons={
 "EnemyCubeMovement": "",
@@ -57,13 +62,14 @@ _global_script_class_icons={
 "VRlessJump": "",
 "VRlessMovement": "",
 "VRlessPlayer": "",
-"WallMovement": ""
+"WallMovement": "",
+"spawn_area": ""
 }
 
 [application]
 
 config/name="Endless-runner- 2023"
-run/main_scene="res://scenes/levels/development/openflat_world/openflat_world.tscn"
+run/main_scene="res://scenes/levels/development/vr_ui_world/vr_ui_world.tscn"
 config/icon="res://icon.png"
 
 [autoload]

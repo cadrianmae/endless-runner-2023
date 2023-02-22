@@ -1,4 +1,4 @@
-extends Movement
+extends VRlessMovement
 
 
 func _enter_tree():
