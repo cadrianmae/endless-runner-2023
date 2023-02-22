@@ -1,16 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/entities/enemies/cube/enemy_cube.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/enemies/cube/movement/movement.gd" type="Script" id=2]
 [ext_resource path="res://scenes/entities/enemies/cube/movement/forward/forward.gd" type="Script" id=3]
 [ext_resource path="res://scenes/entities/enemies/cube/player_dectection/enemy_death_animation/enemy_death_animation.gd" type="Script" id=4]
 [ext_resource path="res://scenes/entities/enemies/cube/player_dectection/decect_player_area/detect_player_area.gd" type="Script" id=5]
+[ext_resource path="res://assets/textures/enemyface.png" type="Texture" id=6]
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+
+[sub_resource type="Skin" id=4]
 
 [node name="EnemyCube" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 collision_layer = 512
 collision_mask = 2147483648
 script = ExtResource( 1 )
@@ -37,7 +46,9 @@ shape = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0313025, 0 )
+mesh = SubResource( 3 )
+skin = SubResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
