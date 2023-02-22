@@ -1,4 +1,4 @@
-extends EnemyFirewallMovement
+extends EnemyCubeMovement
 
 
 # Public Variables

@@ -13,7 +13,7 @@ var _enemy_spawn_rate: Timer
 
 # Wall scene
 onready var _wall_scene: PackedScene = preload("res://scenes/levels/development/enviroment/wall/wall.tscn")
-onready var _enemy_cube_scene: PackedScene = preload("res://scenes/entities/enemies/L/enemy_cube.tscn")
+onready var _enemy_cube_scene: PackedScene = preload("res://scenes/entities/enemies/firewall/enemy_cube.tscn")
 
 # 
 var _random_number_generator = RandomNumberGenerator.new()

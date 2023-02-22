@@ -1,5 +1,5 @@
 extends Spatial
-class_name EnemyFirewallMovement
+class_name EnemyCubeMovement
 
 
 # Private Variables

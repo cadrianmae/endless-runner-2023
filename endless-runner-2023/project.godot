@@ -12,6 +12,11 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "EnemyCubeMovement",
 "language": "GDScript",
+"path": "res://scenes/entities/enemies/firewall/movement/movement.gd"
+}, {
+"base": "Spatial",
+"class": "EnemyFirewallMovement",
+"language": "GDScript",
 "path": "res://scenes/entities/enemies/cube/movement/movement.gd"
 }, {
 "base": "VRlessMovement",
@@ -56,6 +61,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "EnemyCubeMovement": "",
+"EnemyFirewallMovement": "",
 "Jump": "",
 "Movement": "",
 "Player": "",
