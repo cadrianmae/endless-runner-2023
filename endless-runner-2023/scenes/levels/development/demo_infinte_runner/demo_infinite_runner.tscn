@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/levels/development/enviroment/floor/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/development/enviroment/death_boundary/death_boundary.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/vrless-player/vrless-player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/development/demo_infinte_runner/spawn_area/spawn_area.gd" type="Script" id=4]
 
 [node name="DemoInfiniteRunner" type="Spatial"]
@@ -22,6 +22,7 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.48356, 0 )
 
 [node name="Player" parent="SpawnArea/PlayerSpawnArea" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.48356, 0 )
 
 [node name="WallSpawnArea" type="Spatial" parent="SpawnArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
@@ -30,7 +31,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
 one_shot = true
 
 [node name="EnemySpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/EnemySpawnArea"]
 wait_time = 3.0

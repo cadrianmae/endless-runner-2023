@@ -13,7 +13,7 @@ var _enemy_spawn_rate: Timer
 
 # Wall scene
 onready var _wall_scene: PackedScene = preload("res://scenes/levels/development/enviroment/wall/wall.tscn")
-onready var _enemy_cube_scene: PackedScene = preload("res://scenes/entities/enemies/cube/enemy_cube.tscn")
+onready var _enemy_cube_scene: PackedScene = preload("res://scenes/entities/enemies/L/enemy_cube.tscn")
 
 # 
 var _random_number_generator = RandomNumberGenerator.new()
@@ -41,9 +41,9 @@ func spawnWall():
 	# Calculate random number to check to spawn wal left or right
 	_random_number_generator.randomize()
 	if(_random_number_generator.randi_range(0, 1)):
-		wall.translate((Vector3(-2, 0 ,0)))
+		wall.translate((Vector3(-3, 0 ,0)))
 	else:
-		wall.translate((Vector3(2, 0 ,0)))
+		wall.translate((Vector3(3, 0 ,0)))
 	
 	
 	_wall_spawn_rate.start()
