@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/levels/development/enviroment/floor/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/godot-openxr/config/OpenXRConfig.gdns" type="Script" id=2]
@@ -11,6 +11,17 @@
 [sub_resource type="CapsuleShape" id=8]
 radius = 0.25
 height = 1.8
+
+[sub_resource type="Environment" id=9]
+background_mode = 3
+background_color = Color( 0.113725, 0.0117647, 0.145098, 1 )
+ambient_light_color = Color( 0.545098, 0.560784, 0.231373, 0.270588 )
+ambient_light_energy = 0.93
+fog_enabled = true
+fog_color = Color( 0.25098, 0.423529, 0.596078, 1 )
+fog_sun_color = Color( 0.101961, 1, 0, 1 )
+fog_sun_amount = 0.5
+fog_depth_begin = 60.6
 
 [node name="VRUIWorld" type="Spatial"]
 
@@ -62,3 +73,6 @@ collision_mask = 1024
 [node name="CollisionShape" type="CollisionShape" parent="PlayerSpawn/Player/KinematicBody/BodyCollisionArea"]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )
