@@ -11,4 +11,4 @@ func _process(_delta):
 	changeHealth()
 	
 func changeHealth():
-	text = "Health: " + str(_owner.get_node("Health").getHealthCounter())
+	text = "Health: " + str(PlayerStates.getPlayerHealth())

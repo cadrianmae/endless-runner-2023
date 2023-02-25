@@ -8,26 +8,8 @@ var _decrement_status: bool = false
 func _process(delta):
 	playerDeath()
 
-func getLifeStatus() -> bool:
-	if(_health_counter > 0):
-		return true
-	
-	return false
-
-
-func getHealthCounter() -> int:
-	return _health_counter
-
-
-func incrementHealthCouner() -> void:
-	_health_counter += 1
-
-func decrementHealthCounter() -> void:
-	_health_counter -= 1
-
-
 func playerDeath():
-	if(getLifeStatus()):
+	if(PlayerStates.getPlayerLifeState()):
 		return
 	get_tree().change_scene(death_scene)
 
@@ -38,5 +20,5 @@ func _on_BodyCollisionArea_area_shape_entered(area_rid, area, area_shape_index, 
 	
 	_decrement_status = true
 	area.freeEnemy()
-	decrementHealthCounter()
+	PlayerStates.decrementPlayerHealth()
 	_decrement_status = false

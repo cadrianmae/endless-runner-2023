@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/levels/development/enviroment/floor/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/development/enviroment/death_boundary/death_boundary.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/vrless-player/vrless-player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/development/demo_infinte_runner/spawn_area/spawn_area.gd" type="Script" id=4]
+[ext_resource path="res://assets/music/levels/infinite_runner/Project_3.mp3" type="AudioStream" id=5]
+[ext_resource path="res://scenes/levels/development/demo_infinte_runner/demo_infinite_runner.gd" type="Script" id=6]
 
 [node name="DemoInfiniteRunner" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="Enviroment" type="Spatial" parent="."]
 
@@ -15,6 +18,14 @@ transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 [node name="DeathBoundary" parent="Enviroment" instance=ExtResource( 2 )]
 transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0 )
 
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="Music" type="Spatial" parent="Audio"]
+
+[node name="DemoInfiniteRunnerMusic" type="AudioStreamPlayer" parent="Audio/Music"]
+stream = ExtResource( 5 )
+autoplay = true
+
 [node name="SpawnArea" type="Spatial" parent="."]
 script = ExtResource( 4 )
 
@@ -22,7 +33,6 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.48356, 0 )
 
 [node name="Player" parent="SpawnArea/PlayerSpawnArea" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.48356, 0 )
 
 [node name="WallSpawnArea" type="Spatial" parent="SpawnArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )

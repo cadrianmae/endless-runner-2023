@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/entities/player/vr_right_hand/vr_right_hand.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/player/vr_right_hand/scripts/wall_run_position_area.gd" type="Script" id=2]
@@ -13,6 +13,8 @@ albedo_color = Color( 1, 0, 0, 1 )
 [sub_resource type="BoxShape" id=6]
 
 [sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=9]
 
 [node name="VRRightHand" type="ARVRController"]
 script = ExtResource( 1 )
@@ -40,6 +42,14 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="WallRunPositionArea"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 shape = SubResource( 7 )
+
+[node name="PatternArea" type="Area" parent="."]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape" type="CollisionShape" parent="PatternArea"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+shape = SubResource( 9 )
 
 [connection signal="area_shape_entered" from="WallRunPositionArea" to="WallRunPositionArea" method="_on_WallRunPositionArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="WallRunPositionArea" to="WallRunPositionArea" method="_on_WallRunPositionArea_area_shape_exited"]

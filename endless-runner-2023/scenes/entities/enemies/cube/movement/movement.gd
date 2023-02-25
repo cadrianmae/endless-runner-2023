@@ -18,6 +18,7 @@ func _ready():
 func _process(_delta):
 	if(node_forward == null):
 		return
+		
 	freeEnemy()
 	node_forward.movementForward()
 
@@ -42,6 +43,7 @@ func getVelocity() -> Vector3:
 	return velocity
 
 func freeEnemy():
-	if(get_owner().global_transform.origin.z > 30):
+	if(get_owner().global_transform.origin.z > 2):
+		PlayerStates.incrementPlayerCurrentScore()
 		get_owner().queue_free()
 
