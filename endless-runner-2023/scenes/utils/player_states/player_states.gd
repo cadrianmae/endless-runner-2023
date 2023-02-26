@@ -40,4 +40,4 @@ func resetPlayerHealth() -> void:
 	_player_health = 3
 
 func resetPlayerCurrentScore() -> void:
-	_player_best_score = 0
+	_player_current_score = 0

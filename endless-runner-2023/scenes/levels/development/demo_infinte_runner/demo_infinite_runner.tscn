@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/development/enviroment/floor/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/development/enviroment/death_boundary/death_boundary.tscn" type="PackedScene" id=2]
@@ -7,16 +7,54 @@
 [ext_resource path="res://assets/music/levels/infinite_runner/Project_3.mp3" type="AudioStream" id=5]
 [ext_resource path="res://scenes/levels/development/demo_infinte_runner/demo_infinite_runner.gd" type="Script" id=6]
 
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0, 0, 0, 1 )
+sky_horizon_color = Color( 0.168627, 0.172549, 0.180392, 1 )
+sun_color = Color( 0.101961, 1, 0, 1 )
+sun_latitude = 60.0
+sun_energy = 30.3
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+fog_color = Color( 0.0627451, 0.470588, 0.882353, 1 )
+fog_sun_color = Color( 0, 0.345098, 1, 1 )
+fog_sun_amount = 0.13
+fog_depth_begin = 9.5
+ss_reflections_enabled = true
+ss_reflections_depth_tolerance = 0.1
+ss_reflections_roughness = false
+
 [node name="DemoInfiniteRunner" type="Spatial"]
 script = ExtResource( 6 )
 
 [node name="Enviroment" type="Spatial" parent="."]
 
-[node name="Floor" parent="Enviroment" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+[node name="FloorSpawn" type="Spatial" parent="Enviroment"]
+
+[node name="Floor" parent="Enviroment/FloorSpawn" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+
+[node name="Floor2" parent="Enviroment/FloorSpawn" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -10 )
+
+[node name="Floor3" parent="Enviroment/FloorSpawn" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -20 )
+
+[node name="Floor4" parent="Enviroment/FloorSpawn" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -30 )
+
+[node name="Floor5" parent="Enviroment/FloorSpawn" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -40 )
+
+[node name="Floor6" parent="Enviroment/FloorSpawn" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -50 )
 
 [node name="DeathBoundary" parent="Enviroment" instance=ExtResource( 2 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0 )
+transform = Transform( 40, 0, 0, 0, 1, 0, 0, 0, 40, 0, -1, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource( 2 )
 
 [node name="Audio" type="Spatial" parent="."]
 
@@ -35,14 +73,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.48356, 0 )
 [node name="Player" parent="SpawnArea/PlayerSpawnArea" instance=ExtResource( 3 )]
 
 [node name="WallSpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -129.296 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/WallSpawnArea"]
+wait_time = 5.0
 one_shot = true
 
-[node name="EnemySpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+[node name="EnemyCubeSpawnArea" type="Spatial" parent="SpawnArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -129.296 )
 
-[node name="SpawnRate" type="Timer" parent="SpawnArea/EnemySpawnArea"]
-wait_time = 3.0
+[node name="SpawnRate" type="Timer" parent="SpawnArea/EnemyCubeSpawnArea"]
+wait_time = 0.5
+one_shot = true
+
+[node name="EnemyLSpawnArea" type="Spatial" parent="SpawnArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -129.218 )
+
+[node name="SpawnRate" type="Timer" parent="SpawnArea/EnemyLSpawnArea"]
+wait_time = 2.0
 one_shot = true

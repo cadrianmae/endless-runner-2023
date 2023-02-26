@@ -29,9 +29,6 @@ height = 1.8
 
 [node name="Enviroment" type="Spatial" parent="."]
 
-[node name="Floor" parent="Enviroment" instance=ExtResource( 1 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-
 [node name="MainMenu" parent="Enviroment" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1 )
 main_game_path = "res://scenes/levels/development/demo_infinte_runner/demo_infinite_runner.tscn"
@@ -761,6 +758,8 @@ transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704,
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
 environment = SubResource( 9 )
+
+[node name="Floor" parent="Enviroment" instance=ExtResource( 1 )]
 
 [node name="Audio" type="Spatial" parent="."]
 

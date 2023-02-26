@@ -1,5 +1,5 @@
 extends Spatial
-class_name EnemyFirewallMovement
+class_name EntityMovement
 
 
 # Private Variables
@@ -43,7 +43,7 @@ func getVelocity() -> Vector3:
 	return velocity
 
 func freeEnemy():
-	if(get_owner().global_transform.origin.z > 2):
+	if(get_owner().global_transform.origin.z > 5):
 		PlayerStates.incrementPlayerCurrentScore()
 		get_owner().queue_free()
 
