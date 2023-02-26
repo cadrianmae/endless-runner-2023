@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "EntityMovement",
 "language": "GDScript",
-"path": "res://scenes/entities/enemies/cube/movement/movement.gd"
+"path": "res://scenes/entities/enemies/long_boy/movement/movement.gd"
 }, {
 "base": "VRlessMovement",
 "class": "Jump",
@@ -88,6 +88,7 @@ config/icon="res://icon.png"
 
 ParticleCache="*res://scenes/utils/particle_cache/particle_cache.gd"
 PlayerStates="*res://scenes/utils/player_states/player_states.gd"
+Difficulty="*res://scenes/utils/difficulty/difficulty.gd"
 
 [display]
 

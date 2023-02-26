@@ -1,4 +1,6 @@
 extends Spatial
+class_name EntityMovement
+
 
 # Private Variables
 var velocity: Vector3
@@ -13,7 +15,7 @@ func _ready():
 	velocity = Vector3.ZERO
 
 
-func _physics_process(delta):
+func _process(_delta):
 	if(node_forward == null):
 		return
 		

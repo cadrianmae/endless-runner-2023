@@ -1,6 +1,12 @@
 extends Node
 
 
-export var gloab_speed: float = 5
+var global_speed: float = 2
 
 
+
+func addGlobalSpeed(var add):
+	global_speed += add 
+
+func resetGlobalSpeed():
+	global_speed = 1

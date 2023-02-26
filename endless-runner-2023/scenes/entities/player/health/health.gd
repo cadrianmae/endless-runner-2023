@@ -5,7 +5,7 @@ export (String, FILE) var death_scene = "res://scenes/levels/development/death_s
 var _health_counter: int = 3
 var _decrement_status: bool = false
 
-func _process(delta):
+func _physics_process(delta):
 	playerDeath()
 
 func playerDeath():
