@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/levels/development/enviroment/vr_death_menu/death_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/levels/development/enviroment/vr_death_menu/player_scores/player_scores.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -28,12 +29,12 @@ main_game_path = "res://scenes/levels/development/demo_infinte_runner/demo_infin
 main_menu_path = "res://scenes/levels/development/vr_ui_world/vr_ui_world.tscn"
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.1, -0.000183105, 0.0149546, -0.00287366 )
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.1, -0.000183105, 0.0149546, -0.00287366 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="GameTitle" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466686, -0.0473914 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.889453, -0.0473914 )
 
 [node name="Label3D" type="Label3D" parent="GameTitle"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0770152, 0.146753 )
@@ -42,8 +43,28 @@ text = "RIP BOZO"
 font = SubResource( 6 )
 uppercase = true
 
+[node name="PlayerScores" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687715, -0.0473914 )
+script = ExtResource( 3 )
+
+[node name="HighScore" type="Label3D" parent="PlayerScores"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0393965, 0.146753 )
+pixel_size = 0.02
+text = "High Score: 
+"
+font = SubResource( 6 )
+uppercase = true
+
+[node name="CurrentScore" type="Label3D" parent="PlayerScores"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.520142, 0.146753 )
+pixel_size = 0.02
+text = "Current Score:
+"
+font = SubResource( 6 )
+uppercase = true
+
 [node name="Buttons" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.216738, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.748448, 0 )
 
 [node name="Replay" type="Spatial" parent="Buttons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330184, 0 )

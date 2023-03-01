@@ -4,7 +4,6 @@ extends Jump
 # Private Variables
 var jump_boost_counter: int = 2
 var jump_boost_cooldown: Timer
-var jump_boost_reset: Timer
 
 
 func _ready():
@@ -16,7 +15,6 @@ func _enter_tree():
 	xr_right_controller = get_parent().getXRRightContoller()
 	kinematic_body = get_parent().getKinematicBody()
 	jump_boost_cooldown = get_node("JumpBoostCoolDown")
-	jump_boost_reset = get_node("JumpBoostReset")
 
 
 func jumpBoostPlayer():

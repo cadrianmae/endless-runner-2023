@@ -1,6 +1,4 @@
 extends Spatial
-class_name EnemyFirewallMovement
-
 
 # Private Variables
 var velocity: Vector3
@@ -15,12 +13,13 @@ func _ready():
 	velocity = Vector3.ZERO
 
 
-func _process(_delta):
+func _physics_process(delta):
 	if(node_forward == null):
 		return
+		
 	freeEnemy()
 	node_forward.movementForward()
-
+	
 
 
 # Setter Functions
@@ -42,6 +41,7 @@ func getVelocity() -> Vector3:
 	return velocity
 
 func freeEnemy():
-	if(get_owner().global_transform.origin.z > 30):
+	if(get_owner().global_transform.origin.z > 5):
+		PlayerStates.incrementPlayerCurrentScore()
 		get_owner().queue_free()
 

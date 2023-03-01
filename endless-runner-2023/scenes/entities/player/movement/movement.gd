@@ -40,11 +40,12 @@ func movePlayer(delta):
 	node_velocity.velocityPlayer()
 	node_gravity.gravityPlayer(delta)
 	node_wallrun.wallrunPlayer()
-	node_axis.centerPlayerZAxis()
+	# node_axis.centerPlayerZAxis()
 	node_jump_player_controller.jumpPlayerController()
 	node_jump_player_physical.jumpPlayerPhysical()
 	node_jump_player_boost.jumpBoostPlayer()
 	
+
 	# Apply Velcotiy To player body
 	kinematic_body.move_and_slide(velocity, Vector3.UP)
 
@@ -77,3 +78,4 @@ func getVelocity() -> Vector3:
 
 func getWallrunStatus() -> bool:
 	return wallrun_status
+

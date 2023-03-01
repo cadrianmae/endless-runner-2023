@@ -1,4 +1,4 @@
-extends EnemyFirewallMovement
+extends EntityMovement
 
 
 # Public Variables
@@ -11,4 +11,4 @@ func _ready():
 
 
 func movementForward():
-	get_owner().move_and_slide( Vector3(0, 0, speed) )
+	get_owner().move_and_slide( Vector3(0, 0, speed * Difficulty.global_speed) )

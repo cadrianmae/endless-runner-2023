@@ -108,4 +108,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.200744 )
 text = ">EXIT"
 font = SubResource( 7 )
 
-[connection signal="area_shape_exited" from="Buttons/Play/PlayButtonPressArea" to="." method="_on_PlayButtonPressArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="Buttons/Play/PlayButtonPressArea" to="." method="_on_PlayButtonPressArea_area_shape_entered"]

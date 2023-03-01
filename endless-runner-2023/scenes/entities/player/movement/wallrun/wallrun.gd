@@ -27,6 +27,6 @@ func wallrunPlayer():
 	if(kinematic_body.global_transform.origin.y > 3):
 		return
 	
-	kinematic_body.global_transform.origin += Vector3(0, wallrun_speed, 0)
+	get_parent().setVelocityY(wallrun_speed)
 		
 	get_parent().setWallrunStatus(true)
