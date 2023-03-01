@@ -1,0 +1,169 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "EnemyCubeMovement",
+"language": "GDScript",
+"path": "res://scenes/entities/enemies/firewall/movement/movement.gd"
+}, {
+"base": "Spatial",
+"class": "EntityMovement",
+"language": "GDScript",
+"path": "res://scenes/entities/enemies/long_boy/movement/movement.gd"
+}, {
+"base": "VRlessMovement",
+"class": "Jump",
+"language": "GDScript",
+"path": "res://scenes/entities/player/movement/jump/jump.gd"
+}, {
+"base": "Player",
+"class": "Movement",
+"language": "GDScript",
+"path": "res://scenes/entities/player/movement/movement.gd"
+}, {
+"base": "Spatial",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/entities/player/player.gd"
+}, {
+"base": "VRlessMovement",
+"class": "VRlessJump",
+"language": "GDScript",
+"path": "res://scenes/entities/vrless-player/movement/jump/vrless_jump.gd"
+}, {
+"base": "VRlessPlayer",
+"class": "VRlessMovement",
+"language": "GDScript",
+"path": "res://scenes/entities/vrless-player/movement/vrless_movement.gd"
+}, {
+"base": "Spatial",
+"class": "VRlessPlayer",
+"language": "GDScript",
+"path": "res://scenes/entities/vrless-player/vrless_player.gd"
+}, {
+"base": "Spatial",
+"class": "WallMovement",
+"language": "GDScript",
+"path": "res://scenes/levels/development/enviroment/wall/movement/movement.gd"
+}, {
+"base": "Node",
+"class": "player_state",
+"language": "GDScript",
+"path": "res://scenes/utils/player_states/player_states.gd"
+}, {
+"base": "Spatial",
+"class": "spawn_area",
+"language": "GDScript",
+"path": "res://scenes/levels/development/demo_infinte_runner/spawn_area/spawn_area.gd"
+} ]
+_global_script_class_icons={
+"EnemyCubeMovement": "",
+"EntityMovement": "",
+"Jump": "",
+"Movement": "",
+"Player": "",
+"VRlessJump": "",
+"VRlessMovement": "",
+"VRlessPlayer": "",
+"WallMovement": "",
+"player_state": "",
+"spawn_area": ""
+}
+
+[application]
+
+config/name="Endless-runner- 2023"
+run/main_scene="res://scenes/levels/development/vr_ui_world/vr_ui_world.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+ParticleCache="*res://scenes/utils/particle_cache/particle_cache.gd"
+PlayerStates="*res://scenes/utils/player_states/player_states.gd"
+Difficulty="*res://scenes/utils/difficulty/difficulty.gd"
+
+[display]
+
+window/vsync/vsync_via_compositor=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-openxr/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+Jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Boost={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":66,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Grip={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+Up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="PlayerBody"
+3d_physics/layer_2="PlayerBodyCollision"
+3d_physics/layer_3="PlayerCamera"
+3d_physics/layer_4="PlayerHands"
+3d_physics/layer_5="Enviroment"
+3d_physics/layer_6="EnviromentWalls"
+3d_physics/layer_10="EnemyBody"
+3d_physics/layer_11="EnemyBodyCollision"
+3d_physics/layer_13="JumpPositionArea"
+3d_physics/layer_14="WallRunPositionArea"
+3d_physics/layer_15="PatternArea"
+
+[physics]
+
+common/physics_jitter_fix=0.0
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/filters/msaa=3
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/entities/vrless-player/kinematic_body/kinematic_body.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entities/vrless_player_hand_emulator/kinematic_body/left_hand_emulator/left_hand_emulator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/enemies/firewall/enemy_cube.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.160784, 1 )
+emission_energy = 1.91
+emission_operator = 1
+emission_on_uv2 = true
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.525
+extents = Vector3( 1, 0.1, 1 )
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.25
+height = 1.8
+
+[node name="PatternTesting" type="Spatial"]
+
+[node name="Enviroment" type="Spatial" parent="."]
+
+[node name="Floor" type="Spatial" parent="Enviroment"]
+
+[node name="Floor" type="RigidBody" parent="Enviroment/Floor"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mode = 1
+mass = 0.00102041
+gravity_scale = 0.0
+axis_lock_linear_y = true
+axis_lock_angular_y = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Enviroment/Floor/Floor"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enviroment/Floor/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -0.003, -0.1, -0.003 )
+shape = SubResource( 2 )
+
+[node name="Enemy" type="Spatial" parent="Enviroment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0173995, -0.219604, -262.027 )
+
+[node name="EnemyCube" parent="Enviroment/Enemy" instance=ExtResource( 4 )]
+
+[node name="SpawnArea" type="Spatial" parent="."]
+
+[node name="PlayerSpawnArea" type="Spatial" parent="SpawnArea"]
+
+[node name="VRLessPlayerHandEmulator" type="Spatial" parent="SpawnArea/PlayerSpawnArea"]
+
+[node name="KinematicBody" type="KinematicBody" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator"]
+collision_mask = 16
+script = ExtResource( 1 )
+
+[node name="Pivot" type="Spatial" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator/KinematicBody"]
+
+[node name="Camera" type="Camera" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator/KinematicBody/Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator/KinematicBody"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 4 )
+
+[node name="LeftHandEmulator" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator/KinematicBody" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -1.8 )
+
+[node name="BodyCollisionArea" type="Area" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator/KinematicBody"]
+collision_layer = 2
+collision_mask = 1024
+
+[node name="CollisionShape" type="CollisionShape" parent="SpawnArea/PlayerSpawnArea/VRLessPlayerHandEmulator/KinematicBody/BodyCollisionArea"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 4 )

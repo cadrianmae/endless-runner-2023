@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/entities/vrless-player/vr_left_hand/vrless_left_hand.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entities/player/vr_left_hand/wallrun_position_area/wallrun_position_area.gd" type="Script" id=2]
+[ext_resource path="res://scenes/entities/player/vr_left_hand/jump_position_area/jump_position_area.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="Skin" id=4]
+
+[sub_resource type="BoxShape" id=6]
+
+[node name="VRlessLeftHand" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="VRLeftHandMesh" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 5 )
+skin = SubResource( 4 )
+
+[node name="JumpPositionArea" type="Area" parent="."]
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="JumpPositionArea"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="WallRunPositionArea" type="Area" parent="."]
+collision_layer = 8192
+collision_mask = 8192
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="WallRunPositionArea"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[connection signal="area_shape_entered" from="JumpPositionArea" to="JumpPositionArea" method="_on_JumpPositionArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="JumpPositionArea" to="JumpPositionArea" method="_on_JumpPositionArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="WallRunPositionArea" to="WallRunPositionArea" method="_on_WallRunPositionArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="WallRunPositionArea" to="WallRunPositionArea" method="_on_WallRunPositionArea_area_shape_exited"]

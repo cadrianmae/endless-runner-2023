@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Wallrun/Wallrun.gd" type="Script" id=1]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Jump/JumpPlayerPhysical/JumpPlayerPhysical.gd" type="Script" id=2]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Jump/JumpPlayerController/JumpPlayerController.gd" type="Script" id=3]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Velocity/Velocity.gd" type="Script" id=4]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Movement.gd" type="Script" id=5]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Axis/Axis.gd" type="Script" id=6]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Gravity/Gravity.gd" type="Script" id=7]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Jump/Jump.gd" type="Script" id=8]
+[ext_resource path="res://VR-Infinte-Runner-2023/Scenes/Characters/Player/Scripts/Movement/Jump/JumpBoostPlayer/JumpBoostPlayer.gd" type="Script" id=9]
+
+[node name="Movement" type="Spatial"]
+process_priority = 2
+script = ExtResource( 5 )
+
+[node name="Jump" type="Spatial" parent="."]
+process_priority = 3
+script = ExtResource( 8 )
+
+[node name="JumpPlayerController" type="Spatial" parent="Jump"]
+process_priority = 4
+script = ExtResource( 3 )
+
+[node name="JumpPlayerPhysical" type="Spatial" parent="Jump"]
+process_priority = 4
+script = ExtResource( 2 )
+
+[node name="JumpBoostPlayer" type="Spatial" parent="Jump"]
+process_priority = 4
+script = ExtResource( 9 )
+
+[node name="JumpBoostCoolDown" type="Timer" parent="Jump/JumpBoostPlayer"]
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpBoostReset" type="Timer" parent="Jump/JumpBoostPlayer"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Wallrun" type="Spatial" parent="."]
+process_priority = 3
+script = ExtResource( 1 )
+
+[node name="Axis" type="Spatial" parent="."]
+process_priority = 3
+script = ExtResource( 6 )
+
+[node name="Velocity" type="Spatial" parent="."]
+process_priority = 3
+script = ExtResource( 4 )
+
+[node name="Gravity" type="Spatial" parent="."]
+process_priority = 3
+script = ExtResource( 7 )

@@ -1,0 +1,838 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/godot-openxr/config/OpenXRConfig.gdns" type="Script" id=2]
+[ext_resource path="res://scenes/entities/player/vr_right_hand/vr_right_hand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/player/vr_left_hand/vr_left_hand.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/player/player.gd" type="Script" id=5]
+[ext_resource path="res://assets/particles/enviroment/main_menu/zero_one_falling_particle/zero_one_falling_particle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/music/levels/infinite_runner/Project_3.mp3" type="AudioStream" id=7]
+[ext_resource path="res://scenes/entities/player/kinematic_body/xr_origin/xr_origin.gd" type="Script" id=9]
+[ext_resource path="res://scenes/levels/development/enviroment/vr_main_menu/main_menu.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Environment" id=9]
+background_mode = 3
+background_color = Color( 0.113725, 0.0117647, 0.145098, 1 )
+ambient_light_color = Color( 0.545098, 0.560784, 0.231373, 0.270588 )
+ambient_light_energy = 0.93
+fog_enabled = true
+fog_color = Color( 0.25098, 0.423529, 0.596078, 1 )
+fog_sun_color = Color( 0.101961, 1, 0, 1 )
+fog_sun_amount = 0.5
+fog_depth_begin = 60.6
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.160784, 1 )
+emission_energy = 1.91
+emission_operator = 1
+emission_on_uv2 = true
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.525
+extents = Vector3( 1, 0.1, 1 )
+
+[sub_resource type="CapsuleShape" id=8]
+radius = 0.25
+height = 1.8
+
+[node name="VRUIWorld" type="Spatial"]
+
+[node name="Enviroment" type="Spatial" parent="."]
+
+[node name="MainMenu" parent="Enviroment" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1 )
+main_game_path = "res://scenes/levels/development/demo_infinte_runner/demo_infinite_runner.tscn"
+
+[node name="0\'s1\'s" type="Spatial" parent="Enviroment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.8076, 0 )
+
+[node name="Point1" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68103, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point1" instance=ExtResource( 6 )]
+
+[node name="Point2" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9071, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point2" instance=ExtResource( 6 )]
+
+[node name="Point3" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29681, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point3" instance=ExtResource( 6 )]
+
+[node name="Point4" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.65719, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point4" instance=ExtResource( 6 )]
+
+[node name="Point5" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9138, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point5" instance=ExtResource( 6 )]
+
+[node name="Point6" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.674373, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point6" instance=ExtResource( 6 )]
+
+[node name="Point7" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5295, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point7" instance=ExtResource( 6 )]
+
+[node name="Point8" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57554, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point8" instance=ExtResource( 6 )]
+
+[node name="Point9" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68103, 0, -23.588 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point9" instance=ExtResource( 6 )]
+
+[node name="Point10" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9071, 0, -27.0261 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point10" instance=ExtResource( 6 )]
+
+[node name="Point11" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29681, 0, -9.96151 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point11" instance=ExtResource( 6 )]
+
+[node name="Point12" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.65719, 0, -4.82541 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point12" instance=ExtResource( 6 )]
+
+[node name="Point13" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2758, 0, -26.7595 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point13" instance=ExtResource( 6 )]
+
+[node name="Point14" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6877, 0, -30.1976 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point14" instance=ExtResource( 6 )]
+
+[node name="Point15" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8916, 0, -13.133 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point15" instance=ExtResource( 6 )]
+
+[node name="Point16" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9376, 0, -7.99689 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point16" instance=ExtResource( 6 )]
+
+[node name="Point17" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5377, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point17" instance=ExtResource( 6 )]
+
+[node name="Point18" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1258, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point18" instance=ExtResource( 6 )]
+
+[node name="Point19" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9219, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point19" instance=ExtResource( 6 )]
+
+[node name="Point20" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8759, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point20" instance=ExtResource( 6 )]
+
+[node name="Point21" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68103, 0, 9.58719 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point21" instance=ExtResource( 6 )]
+
+[node name="Point22" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9071, 0, 6.14908 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point22" instance=ExtResource( 6 )]
+
+[node name="Point23" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29681, 0, 23.2137 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point23" instance=ExtResource( 6 )]
+
+[node name="Point24" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.65719, 0, 28.3498 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point24" instance=ExtResource( 6 )]
+
+[node name="Point25" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -4.39389, 0, 29.5882 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point25" instance=ExtResource( 6 )]
+
+[node name="Point26" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -7.31385, 0, 14.8876 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point26" instance=ExtResource( 6 )]
+
+[node name="Point27" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 9.20232, 0, 30.6856 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point27" instance=ExtResource( 6 )]
+
+[node name="Point28" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 14.6519, 0, 21.9189 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point28" instance=ExtResource( 6 )]
+
+[node name="Point29" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -4.75582, 0, 39.8146 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point29" instance=ExtResource( 6 )]
+
+[node name="Point30" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -7.67579, 0, 25.114 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point30" instance=ExtResource( 6 )]
+
+[node name="Point31" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 8.84038, 0, 40.9119 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point31" instance=ExtResource( 6 )]
+
+[node name="Point32" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 14.29, 0, 32.1452 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point32" instance=ExtResource( 6 )]
+
+[node name="Point33" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -15.6938, 0, 29.1883 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point33" instance=ExtResource( 6 )]
+
+[node name="Point34" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -18.6138, 0, 14.4877 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point34" instance=ExtResource( 6 )]
+
+[node name="Point35" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -2.09762, 0, 30.2857 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point35" instance=ExtResource( 6 )]
+
+[node name="Point36" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 3.35197, 0, 21.519 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point36" instance=ExtResource( 6 )]
+
+[node name="Point37" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -19.6979, 0, 52.6562 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point37" instance=ExtResource( 6 )]
+
+[node name="Point38" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -22.6178, 0, 37.9555 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point38" instance=ExtResource( 6 )]
+
+[node name="Point39" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -6.10168, 0, 53.7535 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point39" instance=ExtResource( 6 )]
+
+[node name="Point40" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -0.652084, 0, 44.9868 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point40" instance=ExtResource( 6 )]
+
+[node name="Point41" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -3.78485, 0, 12.3803 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point41" instance=ExtResource( 6 )]
+
+[node name="Point42" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -6.70482, 0, -2.32029 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point42" instance=ExtResource( 6 )]
+
+[node name="Point43" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 9.81135, 0, 13.4777 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point43" instance=ExtResource( 6 )]
+
+[node name="Point44" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 15.2609, 0, 4.71096 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point44" instance=ExtResource( 6 )]
+
+[node name="Point45" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 17.4606, 0, 30.3617 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point45" instance=ExtResource( 6 )]
+
+[node name="Point46" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 14.5407, 0, 15.6611 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point46" instance=ExtResource( 6 )]
+
+[node name="Point47" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 31.0568, 0, 31.4591 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point47" instance=ExtResource( 6 )]
+
+[node name="Point48" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 36.5064, 0, 22.6924 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point48" instance=ExtResource( 6 )]
+
+[node name="Point49" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1474, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point49" instance=ExtResource( 6 )]
+
+[node name="Point50" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5592, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point50" instance=ExtResource( 6 )]
+
+[node name="Point51" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7631, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point51" instance=ExtResource( 6 )]
+
+[node name="Point52" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8091, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point52" instance=ExtResource( 6 )]
+
+[node name="Point53" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3801, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point53" instance=ExtResource( 6 )]
+
+[node name="Point54" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.792, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point54" instance=ExtResource( 6 )]
+
+[node name="Point55" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9959, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point55" instance=ExtResource( 6 )]
+
+[node name="Point56" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0419, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point56" instance=ExtResource( 6 )]
+
+[node name="Point57" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1474, 0, -23.588 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point57" instance=ExtResource( 6 )]
+
+[node name="Point58" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5592, 0, -27.0261 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point58" instance=ExtResource( 6 )]
+
+[node name="Point59" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7631, 0, -9.96151 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point59" instance=ExtResource( 6 )]
+
+[node name="Point60" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8091, 0, -4.82541 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point60" instance=ExtResource( 6 )]
+
+[node name="Point61" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.7421, 0, -26.7595 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point61" instance=ExtResource( 6 )]
+
+[node name="Point62" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.154, 0, -30.1976 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point62" instance=ExtResource( 6 )]
+
+[node name="Point63" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.3579, 0, -13.133 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point63" instance=ExtResource( 6 )]
+
+[node name="Point64" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4039, 0, -7.99689 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point64" instance=ExtResource( 6 )]
+
+[node name="Point65" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9287, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point65" instance=ExtResource( 6 )]
+
+[node name="Point66" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65948, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point66" instance=ExtResource( 6 )]
+
+[node name="Point67" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5444, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point67" instance=ExtResource( 6 )]
+
+[node name="Point68" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59044, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point68" instance=ExtResource( 6 )]
+
+[node name="Point69" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1474, 0, 9.58719 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point69" instance=ExtResource( 6 )]
+
+[node name="Point70" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5592, 0, 6.14908 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point70" instance=ExtResource( 6 )]
+
+[node name="Point71" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7631, 0, 23.2137 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point71" instance=ExtResource( 6 )]
+
+[node name="Point72" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8091, 0, 28.3498 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point72" instance=ExtResource( 6 )]
+
+[node name="Point73" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -29.8602, 0, 29.5882 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point73" instance=ExtResource( 6 )]
+
+[node name="Point74" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -32.7802, 0, 14.8876 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point74" instance=ExtResource( 6 )]
+
+[node name="Point75" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -16.264, 0, 30.6856 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point75" instance=ExtResource( 6 )]
+
+[node name="Point76" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -10.8144, 0, 21.9189 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point76" instance=ExtResource( 6 )]
+
+[node name="Point77" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -30.2222, 0, 39.8146 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point77" instance=ExtResource( 6 )]
+
+[node name="Point78" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -33.1421, 0, 25.114 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point78" instance=ExtResource( 6 )]
+
+[node name="Point79" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -16.6259, 0, 40.9119 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point79" instance=ExtResource( 6 )]
+
+[node name="Point80" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -11.1764, 0, 32.1452 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point80" instance=ExtResource( 6 )]
+
+[node name="Point81" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -41.1602, 0, 29.1883 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point81" instance=ExtResource( 6 )]
+
+[node name="Point82" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -44.0801, 0, 14.4877 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point82" instance=ExtResource( 6 )]
+
+[node name="Point83" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -27.564, 0, 30.2857 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point83" instance=ExtResource( 6 )]
+
+[node name="Point84" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -22.1144, 0, 21.519 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point84" instance=ExtResource( 6 )]
+
+[node name="Point85" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -45.1642, 0, 52.6562 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point85" instance=ExtResource( 6 )]
+
+[node name="Point86" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -48.0842, 0, 37.9555 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point86" instance=ExtResource( 6 )]
+
+[node name="Point87" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -31.568, 0, 53.7535 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point87" instance=ExtResource( 6 )]
+
+[node name="Point88" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -26.1184, 0, 44.9868 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point88" instance=ExtResource( 6 )]
+
+[node name="Point89" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -29.2512, 0, 12.3803 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point89" instance=ExtResource( 6 )]
+
+[node name="Point90" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -32.1712, 0, -2.32029 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point90" instance=ExtResource( 6 )]
+
+[node name="Point91" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -15.655, 0, 13.4777 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point91" instance=ExtResource( 6 )]
+
+[node name="Point92" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -10.2054, 0, 4.71096 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point92" instance=ExtResource( 6 )]
+
+[node name="Point93" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -8.00571, 0, 30.3617 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point93" instance=ExtResource( 6 )]
+
+[node name="Point94" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, -10.9257, 0, 15.6611 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point94" instance=ExtResource( 6 )]
+
+[node name="Point95" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 5.5905, 0, 31.4591 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point95" instance=ExtResource( 6 )]
+
+[node name="Point96" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 11.0401, 0, 22.6924 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point96" instance=ExtResource( 6 )]
+
+[node name="Point97" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5172, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point97" instance=ExtResource( 6 )]
+
+[node name="Point98" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1053, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point98" instance=ExtResource( 6 )]
+
+[node name="Point99" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9014, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point99" instance=ExtResource( 6 )]
+
+[node name="Point100" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.8554, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point100" instance=ExtResource( 6 )]
+
+[node name="Point101" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2844, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point101" instance=ExtResource( 6 )]
+
+[node name="Point102" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8726, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point102" instance=ExtResource( 6 )]
+
+[node name="Point103" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6686, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point103" instance=ExtResource( 6 )]
+
+[node name="Point104" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6226, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point104" instance=ExtResource( 6 )]
+
+[node name="Point105" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5172, 0, -23.588 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point105" instance=ExtResource( 6 )]
+
+[node name="Point106" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1053, 0, -27.0261 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point106" instance=ExtResource( 6 )]
+
+[node name="Point107" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9014, 0, -9.96151 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point107" instance=ExtResource( 6 )]
+
+[node name="Point108" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.8554, 0, -4.82541 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point108" instance=ExtResource( 6 )]
+
+[node name="Point109" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9224, 0, -26.7595 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point109" instance=ExtResource( 6 )]
+
+[node name="Point110" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5105, 0, -30.1976 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point110" instance=ExtResource( 6 )]
+
+[node name="Point111" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3066, 0, -13.133 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point111" instance=ExtResource( 6 )]
+
+[node name="Point112" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2606, 0, -7.99689 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point112" instance=ExtResource( 6 )]
+
+[node name="Point113" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.7359, 0, -12.281 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point113" instance=ExtResource( 6 )]
+
+[node name="Point114" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72.324, 0, -15.7191 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point114" instance=ExtResource( 6 )]
+
+[node name="Point115" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.1201, 0, 1.3455 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point115" instance=ExtResource( 6 )]
+
+[node name="Point116" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0741, 0, 6.48161 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point116" instance=ExtResource( 6 )]
+
+[node name="Point117" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5172, 0, 9.58719 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point117" instance=ExtResource( 6 )]
+
+[node name="Point118" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1053, 0, 6.14908 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point118" instance=ExtResource( 6 )]
+
+[node name="Point119" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9014, 0, 23.2137 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point119" instance=ExtResource( 6 )]
+
+[node name="Point120" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.8554, 0, 28.3498 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point120" instance=ExtResource( 6 )]
+
+[node name="Point121" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 39.8043, 0, 29.5882 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point121" instance=ExtResource( 6 )]
+
+[node name="Point122" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 36.8843, 0, 14.8876 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point122" instance=ExtResource( 6 )]
+
+[node name="Point123" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 53.4005, 0, 30.6856 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point123" instance=ExtResource( 6 )]
+
+[node name="Point124" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 58.8501, 0, 21.9189 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point124" instance=ExtResource( 6 )]
+
+[node name="Point125" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 39.4424, 0, 39.8146 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point125" instance=ExtResource( 6 )]
+
+[node name="Point126" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 36.5224, 0, 25.114 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point126" instance=ExtResource( 6 )]
+
+[node name="Point127" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 53.0386, 0, 40.9119 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point127" instance=ExtResource( 6 )]
+
+[node name="Point128" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 58.4882, 0, 32.1452 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point128" instance=ExtResource( 6 )]
+
+[node name="Point129" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 28.5044, 0, 29.1883 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point129" instance=ExtResource( 6 )]
+
+[node name="Point130" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 25.5844, 0, 14.4877 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point130" instance=ExtResource( 6 )]
+
+[node name="Point131" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 42.1006, 0, 30.2857 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point131" instance=ExtResource( 6 )]
+
+[node name="Point132" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 47.5502, 0, 21.519 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point132" instance=ExtResource( 6 )]
+
+[node name="Point133" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 24.5003, 0, 52.6562 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point133" instance=ExtResource( 6 )]
+
+[node name="Point134" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 21.5803, 0, 37.9555 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point134" instance=ExtResource( 6 )]
+
+[node name="Point135" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 38.0965, 0, 53.7535 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point135" instance=ExtResource( 6 )]
+
+[node name="Point136" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 43.5461, 0, 44.9868 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point136" instance=ExtResource( 6 )]
+
+[node name="Point137" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 40.4133, 0, 12.3803 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point137" instance=ExtResource( 6 )]
+
+[node name="Point138" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 37.4934, 0, -2.32029 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point138" instance=ExtResource( 6 )]
+
+[node name="Point139" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 54.0095, 0, 13.4777 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point139" instance=ExtResource( 6 )]
+
+[node name="Point140" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 59.4591, 0, 4.71096 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point140" instance=ExtResource( 6 )]
+
+[node name="Point141" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 61.6588, 0, 30.3617 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point141" instance=ExtResource( 6 )]
+
+[node name="Point142" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 58.7388, 0, 15.6611 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point142" instance=ExtResource( 6 )]
+
+[node name="Point143" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 75.255, 0, 31.4591 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point143" instance=ExtResource( 6 )]
+
+[node name="Point144" type="Spatial" parent="Enviroment/0\'s1\'s"]
+transform = Transform( 0.0353704, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353704, 80.7046, 0, 22.6924 )
+
+[node name="ZeroOneFallingParticle" parent="Enviroment/0\'s1\'s/Point144" instance=ExtResource( 6 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource( 9 )
+
+[node name="Floor" type="RigidBody" parent="Enviroment"]
+mode = 1
+mass = 0.00102041
+gravity_scale = 0.0
+axis_lock_linear_y = true
+axis_lock_angular_y = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Enviroment/Floor"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enviroment/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -0.003, -0.1, -0.003 )
+shape = SubResource( 2 )
+
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="Music" type="Spatial" parent="Audio"]
+
+[node name="MainMenuSong" type="AudioStreamPlayer" parent="Audio/Music"]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="VoiceDialouge" type="Spatial" parent="Audio"]
+
+[node name="PlayerSpawn" type="Spatial" parent="."]
+
+[node name="Player" type="Spatial" parent="PlayerSpawn"]
+process_priority = 1
+script = ExtResource( 5 )
+
+[node name="KinematicBody" type="KinematicBody" parent="PlayerSpawn/Player"]
+collision_mask = 16
+
+[node name="XROrigin" type="ARVROrigin" parent="PlayerSpawn/Player/KinematicBody"]
+script = ExtResource( 9 )
+
+[node name="Configuration" type="Node" parent="PlayerSpawn/Player/KinematicBody/XROrigin"]
+script = ExtResource( 2 )
+color_space = 0
+refresh_rate = 0.0
+
+[node name="XRCamera" type="ARVRCamera" parent="PlayerSpawn/Player/KinematicBody/XROrigin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
+current = true
+near = 0.1
+far = 1000.0
+
+[node name="XRLeftHand" parent="PlayerSpawn/Player/KinematicBody/XROrigin" instance=ExtResource( 4 )]
+
+[node name="XRRightHand" parent="PlayerSpawn/Player/KinematicBody/XROrigin" instance=ExtResource( 3 )]
+controller_id = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSpawn/Player/KinematicBody"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 8 )
+
+[node name="BodyCollisionArea" type="Area" parent="PlayerSpawn/Player/KinematicBody"]
+collision_layer = 2
+collision_mask = 1024
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSpawn/Player/KinematicBody/BodyCollisionArea"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 8 )

@@ -38,3 +38,13 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Godot Addons ignores
+# Add for main branch
+# endless-runner-2023/addons/*
+
+# Godot Builds ignores
+endless-runner-2023/build/*
+
+# Godot Android SDK ignores
+endless-runner-2023/android/*
