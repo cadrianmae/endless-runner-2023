@@ -1,0 +1,519 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/entities/enemies/cube/movement/forward/forward.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entities/enemies/cube/movement/movement.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 2, 8, 2 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 3, 2 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 2, 5, 2 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 4, 2 )
+
+[node name="buildings" type="Spatial"]
+
+[node name="buildingMeshTexture" type="Spatial" parent="."]
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="Spatial2" type="Spatial" parent="buildingMeshTexture/Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.965 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.853 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -5.75965 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance5" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.709 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="MeshInstance6" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -9.62795 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance7" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -11.593 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance8" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -13.481 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance9" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -15.3876 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance10" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -17.337 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture/Spatial/Spatial2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.6425 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -18.7869 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance12" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20.7519 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance13" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -22.6399 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance14" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -24.5465 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance15" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4959 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../../MeshInstance3")
+
+[node name="Spatial3" type="Spatial" parent="buildingMeshTexture/Spatial"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.305592, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.965 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.853 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -5.75965 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance5" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.709 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="MeshInstance6" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -9.62795 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance7" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -11.593 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance8" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -13.481 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance9" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -15.3876 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance10" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -17.337 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture/Spatial/Spatial3"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.6425 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -18.7869 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance12" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20.7519 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance13" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -22.6399 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance14" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -24.5465 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance15" type="MeshInstance" parent="buildingMeshTexture/Spatial/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4959 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../../MeshInstance3")
+
+[node name="Spatial2" type="Spatial" parent="buildingMeshTexture"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.0979, 0, 2.32109 )
+
+[node name="Spatial2" type="Spatial" parent="buildingMeshTexture/Spatial2"]
+
+[node name="MeshInstance" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.965 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.853 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -5.75965 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance5" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.709 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="MeshInstance6" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -9.62795 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance7" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -11.593 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance8" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -13.481 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance9" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -15.3876 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance10" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -17.337 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture/Spatial2/Spatial2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.6425 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -18.7869 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance12" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20.7519 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance13" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -22.6399 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance14" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -24.5465 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance15" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4959 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../../MeshInstance3")
+
+[node name="Spatial3" type="Spatial" parent="buildingMeshTexture/Spatial2"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.305592, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.965 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.853 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -5.75965 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance5" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.709 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="MeshInstance6" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -9.62795 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance7" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -11.593 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance8" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -13.481 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance9" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -15.3876 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance10" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -17.337 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture/Spatial2/Spatial3"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.6425 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -18.7869 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance12" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20.7519 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance13" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -22.6399 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance14" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -24.5465 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance15" type="MeshInstance" parent="buildingMeshTexture/Spatial2/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4959 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../../MeshInstance3")
+
+[node name="Spatial3" type="Spatial" parent="buildingMeshTexture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.722, 0, -15.2014 )
+
+[node name="Spatial2" type="Spatial" parent="buildingMeshTexture/Spatial3"]
+
+[node name="MeshInstance" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.965 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.853 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -5.75965 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance5" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.709 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="MeshInstance6" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -9.62795 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance7" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -11.593 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance8" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -13.481 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance9" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -15.3876 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance10" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -17.337 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture/Spatial3/Spatial2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.6425 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -18.7869 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance12" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20.7519 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance13" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -22.6399 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance14" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -24.5465 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance15" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4959 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../../MeshInstance3")
+
+[node name="Spatial3" type="Spatial" parent="buildingMeshTexture/Spatial3"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.305592, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.965 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3.853 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -5.75965 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance5" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.709 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="MeshInstance6" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -9.62795 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance7" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -11.593 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance8" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -13.481 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance9" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -15.3876 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance10" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -17.337 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../MeshInstance3")
+
+[node name="Spatial" type="Spatial" parent="buildingMeshTexture/Spatial3/Spatial3"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -41.6425 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -18.7869 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance12" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -20.7519 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance13" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -22.6399 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance14" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -24.5465 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance15" type="MeshInstance" parent="buildingMeshTexture/Spatial3/Spatial3/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4959 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../../MeshInstance3")
+
+[node name="Movement" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="Forward" type="Spatial" parent="Movement"]
+script = ExtResource( 1 )
+speed = 10.0

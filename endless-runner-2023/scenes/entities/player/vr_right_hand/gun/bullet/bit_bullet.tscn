@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/entities/player/vr_right_hand/gun/bullet/bit_bullet.gd" type="Script" id=2]
+
+[sub_resource type="SphereMesh" id=6]
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.2
+height = 0.5
+
+[sub_resource type="BoxShape" id=5]
+
+[node name="BitBullet" type="KinematicBody"]
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256761, 0 )
+mesh = SubResource( 6 )
+
+[node name="CollisioArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisioArea"]
+shape = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 5 )
+disabled = true

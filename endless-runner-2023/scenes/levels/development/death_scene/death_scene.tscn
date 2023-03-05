@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/entities/player/vr_right_hand/vr_right_hand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/player/vr_left_hand/vr_left_hand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/godot-openxr/config/OpenXRConfig.gdns" type="Script" id=4]
+[ext_resource path="res://scenes/entities/player/kinematic_body/xr_origin/xr_origin.gd" type="Script" id=5]
+[ext_resource path="res://scenes/entities/player/player.gd" type="Script" id=6]
+[ext_resource path="res://scenes/levels/development/enviroment/vr_death_menu/death_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/music/levels/death_menu/death_scene_music.wav" type="AudioStream" id=8]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.160784, 1 )
+emission_energy = 1.91
+emission_operator = 1
+emission_on_uv2 = true
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.525
+extents = Vector3( 1, 0.1, 1 )
+
+[sub_resource type="CapsuleShape" id=8]
+radius = 0.25
+height = 1.8
+
+[node name="DeathScene" type="Spatial"]
+
+[node name="Enviroment" type="Spatial" parent="."]
+
+[node name="Floor" type="RigidBody" parent="Enviroment"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+mode = 1
+mass = 0.00102041
+gravity_scale = 0.0
+axis_lock_linear_y = true
+axis_lock_angular_y = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Enviroment/Floor"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enviroment/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -0.003, -0.1, -0.003 )
+shape = SubResource( 2 )
+
+[node name="DeathMenu" parent="Enviroment" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1 )
+
+[node name="Audio" type="Spatial" parent="."]
+
+[node name="Music" type="Spatial" parent="Audio"]
+
+[node name="DeathMenuMusic" type="AudioStreamPlayer" parent="Audio/Music"]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="PlayerSpawnArea" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.278482 )
+
+[node name="Player" type="Spatial" parent="PlayerSpawnArea"]
+process_priority = 1
+script = ExtResource( 6 )
+
+[node name="KinematicBody" type="KinematicBody" parent="PlayerSpawnArea/Player"]
+collision_mask = 16
+
+[node name="XROrigin" type="ARVROrigin" parent="PlayerSpawnArea/Player/KinematicBody"]
+script = ExtResource( 5 )
+
+[node name="Configuration" type="Node" parent="PlayerSpawnArea/Player/KinematicBody/XROrigin"]
+script = ExtResource( 4 )
+color_space = 0
+refresh_rate = 0.0
+
+[node name="XRCamera" type="ARVRCamera" parent="PlayerSpawnArea/Player/KinematicBody/XROrigin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
+current = true
+near = 0.1
+far = 1000.0
+
+[node name="XRLeftHand" parent="PlayerSpawnArea/Player/KinematicBody/XROrigin" instance=ExtResource( 3 )]
+
+[node name="XRRightHand" parent="PlayerSpawnArea/Player/KinematicBody/XROrigin" instance=ExtResource( 2 )]
+controller_id = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSpawnArea/Player/KinematicBody"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 8 )
+
+[node name="BodyCollisionArea" type="Area" parent="PlayerSpawnArea/Player/KinematicBody"]
+collision_layer = 2
+collision_mask = 1024
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSpawnArea/Player/KinematicBody/BodyCollisionArea"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 8 )

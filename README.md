@@ -1,7 +1,7 @@
 # endless-runner-2023
 Endless Runner 2023 for Games Fleadh 2023
 <!-- Add img below -->
-![Horsey running and dodging enemies](assets/images/horsey.gif)
+![Horsey running and dodging enemies](assets/images/bitboy-gameplay.gif)
 
 # Installation
 Pre-requisites:

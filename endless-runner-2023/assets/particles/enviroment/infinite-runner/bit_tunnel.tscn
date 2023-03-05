@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/fonts/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 5
+emission_ring_radius = 6.0
+emission_ring_inner_radius = 6.0
+emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 0, 10 )
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 100 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="TextMesh" id=4]
+material = SubResource( 9 )
+text = "1"
+font = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="TextMesh" id=7]
+material = SubResource( 8 )
+text = "@"
+font = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.164706, 1, 0, 1 )
+
+[sub_resource type="TextMesh" id=12]
+material = SubResource( 11 )
+text = "@"
+font = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.054902, 1, 0, 1 )
+
+[sub_resource type="TextMesh" id=15]
+material = SubResource( 14 )
+text = "1"
+font = SubResource( 13 )
+
+[node name="BitTunnel" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+amount = 500
+lifetime = 30.0
+speed_scale = 0.5
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 4 )
+
+[node name="Particles2" type="Particles" parent="."]
+amount = 500
+lifetime = 30.0
+speed_scale = 0.5
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="Particles3" type="Particles" parent="."]
+amount = 500
+lifetime = 30.0
+speed_scale = 0.5
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="Particles4" type="Particles" parent="."]
+amount = 500
+lifetime = 30.0
+speed_scale = 0.5
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 15 )

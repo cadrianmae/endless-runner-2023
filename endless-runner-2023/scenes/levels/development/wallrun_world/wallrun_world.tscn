@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/entities/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/utils/particle_cache/particle_cache.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/development/enviroment/wall/wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/development/enviroment/floor/Floor.tscn" type="PackedScene" id=5]
+
+[node name="OpenFlatWorld" type="Spatial"]
+
+[node name="Utils" type="Spatial" parent="."]
+visible = false
+
+[node name="ParticleCache" parent="Utils" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Enviroment" type="Spatial" parent="."]
+
+[node name="Floor" parent="Enviroment" instance=ExtResource( 5 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+
+[node name="Walls" type="Spatial" parent="Enviroment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60 )
+
+[node name="Wall" parent="Enviroment/Walls" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, 3, 0, 0 )
+
+[node name="Wall2" parent="Enviroment/Walls" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 7, -3, 0, -40 )
+
+[node name="Wall3" parent="Enviroment/Walls" instance=ExtResource( 4 )]
+transform = Transform( 0.984808, 0, 1.21554, 0, 1, 0, -0.173648, 0, 6.89365, 3, 0, -100 )
+
+[node name="EntitySpawn" type="Spatial" parent="."]
+
+[node name="PlayerSpawn" type="Spatial" parent="EntitySpawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Player" parent="EntitySpawn/PlayerSpawn" instance=ExtResource( 1 )]
+
+[node name="EnemySpawn" type="Spatial" parent="EntitySpawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -80.9403 )

@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/fonts/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="ParticlesMaterial" id=1]
+color = Color( 0.211765, 1, 0, 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+next_pass = SubResource( 1 )
+color = Color( 0.352941, 1, 0, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 256
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.156863, 1, 0, 1 )
+
+[sub_resource type="TextMesh" id=5]
+material = SubResource( 4 )
+text = "1"
+font = SubResource( 3 )
+curve_step = 0.1
+depth = 0.5
+
+[sub_resource type="DynamicFont" id=6]
+size = 256
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.152941, 1, 0, 1 )
+
+[sub_resource type="TextMesh" id=8]
+material = SubResource( 7 )
+text = "0"
+font = SubResource( 6 )
+depth = 0.5
+
+[node name="ZeroOneFallingParticle" type="Spatial"]
+
+[node name="0Particle" type="Particles" parent="."]
+amount = 10
+lifetime = 10.0
+fixed_fps = 60
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="1Particle" type="Particles" parent="."]
+amount = 40
+lifetime = 10.0
+preprocess = 4.0
+fixed_fps = 60
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 8 )
