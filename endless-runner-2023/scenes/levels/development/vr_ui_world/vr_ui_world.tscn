@@ -798,6 +798,7 @@ autoplay = true
 [node name="VoiceDialouge" type="Spatial" parent="Audio"]
 
 [node name="PlayerSpawn" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.324533 )
 
 [node name="Player" type="Spatial" parent="PlayerSpawn"]
 process_priority = 1

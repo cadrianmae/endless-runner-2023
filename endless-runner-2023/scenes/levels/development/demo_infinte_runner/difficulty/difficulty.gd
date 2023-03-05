@@ -20,8 +20,8 @@ func increaseDifficulty():
 	if(!_difficulty_timer.is_stopped()):
 		return
 	
-	if(Difficulty.global_speed > 4.0):
+	if(Difficulty.global_speed > 10.0):
 		return
 	
 	_difficulty_timer.start()
-	Difficulty.addGlobalSpeed(0.2)
+	Difficulty.addGlobalSpeed(0.35)

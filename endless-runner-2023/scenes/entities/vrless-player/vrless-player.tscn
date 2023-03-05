@@ -82,6 +82,7 @@ script = ExtResource( 4 )
 
 [node name="Camera" type="Camera" parent="KinematicBody/Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
+far = 3825.4
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 1, 0 )

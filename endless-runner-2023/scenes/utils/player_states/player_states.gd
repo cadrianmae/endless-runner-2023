@@ -2,10 +2,6 @@ extends Node
 class_name player_state
 
 # Public Variable
-var pattern_array: Array = []
-var kill_firewall: bool= false
-var firefall_spawn: bool = false
-
 # Private Variables
 var _player_health: int = 3
 var _player_current_score: int = 0
