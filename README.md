@@ -16,11 +16,6 @@ https://1drv.ms/u/s!AuHZvBhYHXD0o45XPnqSqXm0O8Bbtw?e=aFIPh4
 # Godot 3.5 Engine
 BitBoy was created in the open source godot 3.5 engine using the OpenXR addon to allow the game to run on the Quest1, Quest2 and PCVR.
 
-# Link to APK Build
-APK Build is too big for github
-Onedrive:
-https://1drv.ms/u/s!AuHZvBhYHXD0o45XPnqSqXm0O8Bbtw?e=aFIPh4
-
 # Installation
 Pre-requisites:
     - Godot 3.5.1
