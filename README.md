@@ -3,6 +3,11 @@ Endless Runner 2023 for Games Fleadh 2023
 <!-- Add img below -->
 ![Horsey running and dodging enemies](assets/images/bitboy-gameplay.gif)
 
+# Link to APK Build
+APK Build is too big for github
+Onedrive:
+https://1drv.ms/u/s!AuHZvBhYHXD0o45XPnqSqXm0O8Bbtw?e=aFIPh4
+
 # Installation
 Pre-requisites:
     - Godot 3.5.1
