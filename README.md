@@ -3,6 +3,7 @@
 BitBoy - Endless Runner 2023 for Games Fleadh 2023
 <!-- Add img below -->
 <img src="assets/images/BitBoyPoster.png" width="200px">
+
 ![BitBoy Gameplay](assets/images/bitboy-gameplay.gif)
 
 ## What is BitBoy?
