@@ -42,8 +42,6 @@ $RECYCLE.BIN/
 # Godot Addons ignores
 # Add for main branch
 # endless-runner-2023/addons/*
-
-# Godot Builds ignores
 endless-runner-2023/build/*
 
 # Godot Android SDK ignores
