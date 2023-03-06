@@ -1,12 +1,20 @@
 # endless-runner-2023
 Endless Runner 2023 for Games Fleadh 2023
 <!-- Add img below -->
-![Horsey running and dodging enemies](assets/images/bitboy-gameplay.gif)
+# BitBoy
+<img src="assets/images/BitBoyPoster.png" width="200px">
+<img src="assets/images/bitboy-gameplay.gif">
+
+# What is BitBoy?
+Bitboy is a VR Experience where you play as BitBoy the titular character of the game, and your job is to diliver bits through a transmitting medium without getting corrupted along the way.
 
 # Link to APK Build
 APK Build is too big for github
 Onedrive:
 https://1drv.ms/u/s!AuHZvBhYHXD0o45XPnqSqXm0O8Bbtw?e=aFIPh4
+
+# Godot 3.5 Engine
+BitBoy was created in the open source godot 3.5 engine using the OpenXR addon to allow the game to run on the Quest1, Quest2 and PCVR.
 
 # Installation
 Pre-requisites:
@@ -16,8 +24,8 @@ Pre-requisites:
 2. Open the project in Godot
 
 # Roadmap
-- [ ] Core game mechanics
-- [ ] Game theme
+- [x] Core game mechanics
+- [x] Game theme
 
 # Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
