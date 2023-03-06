@@ -2,7 +2,7 @@ extends Player
 class_name Movement
 
 # Public Variables
-var movement_speed: float = 10
+var movement_speed: float = 20
 
 
 # Private Variables
@@ -13,7 +13,6 @@ var wallrun_status: bool = false
 # Nodes
 onready var node_velocity: Spatial = $Velocity
 onready var node_gravity: Spatial = $Gravity
-onready var node_wallrun: Spatial = $Wallrun
 onready var node_axis: Spatial = $Axis
 onready var node_jump_player_controller: Spatial = $Jump/JumpPlayerController
 onready var node_jump_player_physical: Spatial = $Jump/JumpPlayerPhysical
@@ -39,8 +38,6 @@ func movePlayer(delta):
 	
 	node_velocity.velocityPlayer()
 	node_gravity.gravityPlayer(delta)
-	node_wallrun.wallrunPlayer()
-	# node_axis.centerPlayerZAxis()
 	node_jump_player_controller.jumpPlayerController()
 	node_jump_player_physical.jumpPlayerPhysical()
 	node_jump_player_boost.jumpBoostPlayer()

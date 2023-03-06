@@ -1,30 +1,27 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/levels/development/enviroment/floor/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/development/enviroment/death_boundary/death_boundary.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/development/demo_infinte_runner/spawn_area/spawn_area.gd" type="Script" id=4]
 [ext_resource path="res://assets/music/levels/infinite_runner/Project_3.mp3" type="AudioStream" id=5]
 [ext_resource path="res://scenes/levels/development/demo_infinte_runner/demo_infinite_runner.gd" type="Script" id=6]
 [ext_resource path="res://scenes/levels/development/demo_infinte_runner/difficulty/difficulty.gd" type="Script" id=7]
+[ext_resource path="res://scenes/levels/development/enviroment/world_enviroment/world_environment.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/particles/enviroment/infinite-runner/bit_tunnel.tscn" type="PackedScene" id=9]
 
-[sub_resource type="ProceduralSky" id=1]
-sky_top_color = Color( 0, 0, 0, 1 )
-sky_horizon_color = Color( 0.168627, 0.172549, 0.180392, 1 )
-sun_color = Color( 0.266667, 1, 0, 1 )
-sun_latitude = 30.0
-sun_energy = 6.42
+[sub_resource type="PlaneMesh" id=1]
 
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-fog_color = Color( 0.0627451, 0.470588, 0.882353, 1 )
-fog_sun_color = Color( 0, 0.345098, 1, 1 )
-fog_sun_amount = 0.13
-fog_depth_begin = 9.5
-ss_reflections_enabled = true
-ss_reflections_depth_tolerance = 0.1
-ss_reflections_roughness = false
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.160784, 1 )
+emission_energy = 1.91
+emission_operator = 1
+emission_on_uv2 = true
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.525
+extents = Vector3( 1, 0.1, 1 )
 
 [node name="DemoInfiniteRunner" type="Spatial"]
 script = ExtResource( 6 )
@@ -33,55 +30,29 @@ script = ExtResource( 6 )
 
 [node name="Initial" type="Spatial" parent="Enviroment"]
 
-[node name="Floor" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+[node name="Floor" type="RigidBody" parent="Enviroment/Initial"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 120, 0, 0, -93.2608 )
+mode = 1
+mass = 0.00102041
+gravity_scale = 0.0
+axis_lock_linear_y = true
+axis_lock_angular_y = true
 
-[node name="Floor2" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -10 )
+[node name="MeshInstance" type="MeshInstance" parent="Enviroment/Initial/Floor"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
 
-[node name="Floor3" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -20 )
-
-[node name="Floor4" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -30 )
-
-[node name="Floor5" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -40 )
-
-[node name="Floor6" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -50 )
-
-[node name="Floor7" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -59.9879 )
-
-[node name="Floor8" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -69.9879 )
-
-[node name="Floor9" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -79.9879 )
-
-[node name="Floor10" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -89.9879 )
-
-[node name="Floor11" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -99.9879 )
-
-[node name="Floor12" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -109.988 )
-
-[node name="Floor13" parent="Enviroment/Initial" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -119.936 )
+[node name="CollisionShape" type="CollisionShape" parent="Enviroment/Initial/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.1, -0.003, -0.1, -0.003 )
+shape = SubResource( 2 )
 
 [node name="DeathBoundary" parent="Enviroment" instance=ExtResource( 2 )]
 transform = Transform( 40, 0, 0, 0, 1, 0, 0, 0, 40, 0, -4.28409, 0 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
-environment = SubResource( 2 )
+[node name="WorldEnvironment" parent="Enviroment" instance=ExtResource( 8 )]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Enviroment/WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 28.7999, -47.4771 )
-light_energy = 1.235
-shadow_enabled = true
+[node name="BitTunnel" parent="Enviroment" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, -225.049 )
 
 [node name="Audio" type="Spatial" parent="."]
 
@@ -103,12 +74,12 @@ one_shot = true
 script = ExtResource( 4 )
 
 [node name="PlayerSpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.48356, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66331, 0 )
 
 [node name="Player" parent="SpawnArea/PlayerSpawnArea" instance=ExtResource( 3 )]
 
 [node name="WallSpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -135 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -258.17 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/WallSpawnArea"]
 process_mode = 0
@@ -116,7 +87,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="EnemyCubeSpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -129.296 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -252.466 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/EnemyCubeSpawnArea"]
 process_mode = 0
@@ -124,7 +95,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="EnemyLSpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -130 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -253.17 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/EnemyLSpawnArea"]
 process_mode = 0
@@ -132,6 +103,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="LongBoySpawnArea" type="Spatial" parent="SpawnArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -123.17 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/LongBoySpawnArea"]
 process_mode = 0
@@ -139,13 +111,9 @@ wait_time = 3.0
 one_shot = true
 
 [node name="FloorSpawnArea" type="Spatial" parent="SpawnArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -130 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -253.17 )
 
 [node name="SpawnRate" type="Timer" parent="SpawnArea/FloorSpawnArea"]
 process_mode = 0
-wait_time = 0.2
-one_shot = true
-
-[node name="FloorCoolDown" type="Timer" parent="SpawnArea/FloorSpawnArea"]
-process_mode = 0
+wait_time = 0.1
 one_shot = true

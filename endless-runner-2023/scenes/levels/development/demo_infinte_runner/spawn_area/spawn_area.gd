@@ -11,7 +11,6 @@ var _enemy_spawn_area: Spatial
 var _floor_spawn_area: Spatial
 var _wall_spawn_rate: Timer
 var _floor_spawn_rate: Timer
-var _floor_cool_down: Timer
 var _enemy_cube_spawn_rate: Timer
 var _enemy_l_spawn_rate: Timer
 var _enemy_long_boy_spawn_rate: Timer
@@ -35,7 +34,6 @@ func _ready():
 	_floor_spawn_area = get_node("FloorSpawnArea")
 	_wall_spawn_rate = get_node("WallSpawnArea/SpawnRate")
 	_floor_spawn_rate = get_node("FloorSpawnArea/SpawnRate")
-	_floor_cool_down = get_node("FloorSpawnArea/FloorCoolDown")
 	_enemy_cube_spawn_rate = get_node("EnemyCubeSpawnArea/SpawnRate")
 	_enemy_l_spawn_rate = get_node("EnemyLSpawnArea/SpawnRate")
 	_enemy_long_boy_spawn_rate = get_node("LongBoySpawnArea/SpawnRate")
@@ -47,13 +45,13 @@ func _physics_process(delta):
 func matchTimer():
 	var multiplier = Difficulty.global_speed
 	_wall_spawn_rate.wait_time = 20 / multiplier
-	_floor_cool_down.wait_time = 0.25 * multiplier
 	_enemy_cube_spawn_rate.wait_time = 2 / multiplier
 	_enemy_l_spawn_rate.wait_time = 8 / multiplier
 	_enemy_long_boy_spawn_rate.wait_time = 12 / multiplier
 
 func spawn():
-	spawnWall()
+	# spawnWall()
+	# spawnFloor()
 	spawnEnemyCube()
 	spawnEnemyL()
 	spawnEnemyLongBoy()
@@ -79,7 +77,6 @@ func spawnWall():
 	
 	
 	_wall_spawn_rate.start()
-	_floor_cool_down.start()
 	_wall_spawn_area.add_child(wall)
 
 func spawnEnemyCube():
@@ -102,9 +99,6 @@ func spawnEnemyL():
 	_random_number_generator.randomize()
 	enemy.translate(Vector3(_random_number_generator.randf_range(-4.8, 4.8), 0, 0))
 	
-	_random_number_generator.randomize()
-	if(_random_number_generator.randi_range(0, 1)):
-		enemy.scale = Vector3(0.5 , 0.5, 0.5)
 
 	_enemy_l_spawn_rate.start()
 	_enemy_spawn_area.add_child(enemy)
@@ -123,9 +117,6 @@ func spawnEnemyLongBoy():
 	_enemy_spawn_area.add_child(enemy)
 
 func spawnFloor():
-	if(!_floor_cool_down.is_stopped()):
-		return
-	
 	if(!_floor_spawn_rate.is_stopped()):
 		return
 	

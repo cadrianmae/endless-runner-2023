@@ -58,6 +58,7 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [node name="PlayerSpawnArea" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.278482 )
 
 [node name="Player" type="Spatial" parent="PlayerSpawnArea"]
 process_priority = 1
