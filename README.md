@@ -6,6 +6,9 @@ BitBoy - Endless Runner 2023 for Games Fleadh 2023
 
 ![BitBoy Gameplay](assets/images/bitboy-gameplay.gif)
 
+## BitBoy Trailer
+https://www.youtube.com/watch?v=ZxzUO61z-OQ
+
 ## What is BitBoy?
 
 Bitboy is a VR Experience where you play as BitBoy the titular character of the game, and your job is to diliver bits through a transmitting medium without getting corrupted along the way.
